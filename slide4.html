@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Why Do We Need Trustworthy AI?</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap">
+<style>
+:root{--page:#020617;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--page:#000}}
+:root[data-theme="dark"]{--page:#000}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--page);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;padding:24px 12px;font-family:"Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
+.slide{position:relative;overflow:hidden;width:min(100%,1100px);aspect-ratio:16/9;min-height:460px;color:#eaf2ff;
+ background:radial-gradient(800px 520px at 82% 42%,rgba(37,99,235,.55) 0%,transparent 62%),radial-gradient(600px 420px at 5% 105%,rgba(14,60,170,.6) 0%,transparent 65%),radial-gradient(500px 300px at 30% -10%,rgba(56,189,248,.18) 0%,transparent 70%),linear-gradient(160deg,#010309 0%,#040a1c 55%,#000 100%);
+ padding:clamp(22px,5vw,64px);display:flex;flex-direction:column;justify-content:space-between}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(56,140,255,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(56,140,255,.09) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse at 70% 50%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 70% 50%,#000 20%,transparent 75%)}
+.badge{display:inline-block;font-size:clamp(.7rem,1.3vw,.9rem);padding:.35rem .8rem;border:1px solid #4fd1ff;color:#8fe3ff;border-radius:999px;background:rgba(79,209,255,.08);margin-bottom:1.1rem}
+.s2 .head{position:relative}
+.s2 h2{margin:0;font-size:clamp(1.4rem,3.6vw,2.7rem);line-height:1.06;font-weight:700;letter-spacing:-.025em}
+.s2 h2 span{background:linear-gradient(90deg,#4fd1ff,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.s2 .def{margin:.7rem 0 0;max-width:62ch;font-size:clamp(.8rem,1.5vw,1.05rem);color:#aebfdc;line-height:1.45}
+.col-h{font-size:clamp(.65rem,1.1vw,.8rem);letter-spacing:.12em;color:#8fe3ff;margin:0 0 .6rem}
+.src{position:relative;font-size:clamp(.6rem,1.05vw,.78rem);color:#8193b3;line-height:1.4}
+.s2.slide{padding-top:clamp(14px,2.6vw,32px)}
+.s2 .head{margin-bottom:clamp(14px,2.4vw,30px)}
+.cards{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1.8vw,22px);align-items:stretch}
+.card{position:relative;display:flex;flex-direction:column;gap:.7rem;padding:clamp(14px,2vw,24px);border-radius:16px;background:linear-gradient(180deg,rgba(79,209,255,.09),rgba(255,255,255,.03));border:1px solid rgba(79,209,255,.25);overflow:hidden}
+.card::before{content:"";position:absolute;left:0;top:0;right:0;height:3px;background:linear-gradient(90deg,#4fd1ff,#3b82f6)}
+.card .n{font-size:clamp(1.6rem,3.6vw,2.8rem);font-weight:700;line-height:1;background:linear-gradient(90deg,#4fd1ff,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.card h3{margin:0;font-size:clamp(1rem,2vw,1.45rem);line-height:1.15;letter-spacing:-.01em}
+.card .what{margin:0;font-size:clamp(.78rem,1.45vw,1.02rem);color:#d6e2f7;line-height:1.35}
+.card .case{margin:0;padding-top:.7rem;border-top:1px dashed rgba(79,209,255,.3);font-size:clamp(.7rem,1.2vw,.88rem);color:#aebfdc;line-height:1.4}
+.card .case b{display:block;font-size:clamp(.6rem,1vw,.72rem);letter-spacing:.12em;color:#8fe3ff;margin-bottom:.3rem}
+.card .fix{margin-top:auto;align-self:flex-start;font-size:clamp(.68rem,1.15vw,.85rem);padding:.35rem .75rem;border:1px solid #4fd1ff;color:#8fe3ff;border-radius:999px;background:rgba(79,209,255,.08)}
+@media (max-width:680px){.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<section class="slide s2">
+  <div class="grid"></div>
+  <div class="head">
+    <span class="badge">Motivation</span>
+    <h2>Why do we need <span>Trustworthy AI?</span></h2>
+    <p class="def">Without trust, AI can quietly harm people and the decisions built on it.</p>
+  </div>
+  <div class="cards">
+    <div class="card"><div class="n">01</div><h3>Bias</h3><p class="what">Unequal outcomes for different groups</p><p class="case"><b>REAL-WORLD CASE</b>Amazon dropped an AI hiring tool that downgraded résumés mentioning women's activities (Reuters, 2018).</p><span class="fix">Fixed by: Fairness</span></div>
+    <div class="card"><div class="n">02</div><h3>Privacy violations</h3><p class="what">Models leak or expose personal data</p><p class="case"><b>REAL-WORLD CASE</b>Researchers extracted verbatim training data, including personal details, from GPT-2 (2021).</p><span class="fix">Fixed by: Privacy</span></div>
+    <div class="card"><div class="n">03</div><h3>Unreliable predictions</h3><p class="what">Confident but wrong outputs in high-stakes use</p><p class="case"><b>REAL-WORLD CASE</b>An outside study found a widely used hospital sepsis model performed far worse than its vendor reported (2021).</p><span class="fix">Fixed by: Robustness, explainability</span></div>
+  </div>
+  <div class="src">Sources: Reuters (2018); Carlini et al., USENIX Security (2021); Wong et al., JAMA Internal Medicine (2021).</div>
+</section>
+</body>
+</html>
