@@ -6,31 +6,51 @@
 <title>Trustworthy AI as an Algorithmic Problem</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap">
 <style>
-:root{--page:#e6eaf1;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--page:#05080f}}
-:root[data-theme="dark"]{--page:#05080f}
+:root{--page:#020617;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--page:#000}}
+:root[data-theme="dark"]{--page:#000}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *,*::before,*::after{box-sizing:border-box}
-body{margin:0;background:var(--page);min-height:100vh;display:flex;align-items:center;justify-content:center;font-family:"Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
+body{margin:0;background:var(--page);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;padding:24px 12px;font-family:"Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
 .slide{position:relative;overflow:hidden;width:min(100%,1100px);aspect-ratio:16/9;min-height:460px;color:#eaf2ff;
- background:radial-gradient(900px 500px at 85% 40%,#12486b 0%,transparent 60%),radial-gradient(700px 400px at 0% 100%,#3b1d6e 0%,transparent 60%),#0a1224;
+ background:radial-gradient(800px 520px at 82% 42%,rgba(37,99,235,.55) 0%,transparent 62%),radial-gradient(600px 420px at 5% 105%,rgba(14,60,170,.6) 0%,transparent 65%),radial-gradient(500px 300px at 30% -10%,rgba(56,189,248,.18) 0%,transparent 70%),linear-gradient(160deg,#010309 0%,#040a1c 55%,#000 100%);
  padding:clamp(22px,5vw,64px);display:flex;flex-direction:column;justify-content:space-between}
-.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(120,170,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(120,170,255,.07) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse at 70% 50%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 70% 50%,#000 20%,transparent 75%)}
-svg.art{position:absolute;right:1%;top:50%;transform:translateY(-50%);width:56%;height:auto;max-height:92%}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(56,140,255,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(56,140,255,.09) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse at 70% 50%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 70% 50%,#000 20%,transparent 75%)}
+svg.art{position:absolute;right:1%;top:50%;transform:translateY(-50%);width:50%;height:auto;max-height:84%}
 .txt{position:relative;max-width:min(46%,520px)}
 .badge{display:inline-block;font-size:clamp(.7rem,1.3vw,.9rem);padding:.35rem .8rem;border:1px solid #4fd1ff;color:#8fe3ff;border-radius:999px;background:rgba(79,209,255,.08);margin-bottom:1.1rem}
-h1{margin:0;font-size:clamp(1.9rem,5.2vw,4rem);line-height:1.04;font-weight:700;letter-spacing:-.025em}
-h1 span{background:linear-gradient(90deg,#4fd1ff,#a78bfa);-webkit-background-clip:text;background-clip:text;color:transparent}
+h1{margin:0;font-size:clamp(1.4rem,3.6vw,2.7rem);line-height:1.04;font-weight:700;letter-spacing:-.025em}
+h1 span{background:linear-gradient(90deg,#4fd1ff,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent}
 .sub{margin:1rem 0 0;font-size:clamp(.9rem,1.9vw,1.25rem);color:#aebfdc;line-height:1.45}
 .foot{position:relative;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;justify-content:space-between}
 .chips{display:flex;flex-wrap:wrap;gap:.5rem}
 .chip{font-size:clamp(.7rem,1.3vw,.9rem);padding:.4rem .75rem;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#d6e2f7}
-.meta{font-size:clamp(.7rem,1.3vw,.9rem);color:#8193b3}
+.meta{margin-left:auto;font-size:clamp(.7rem,1.3vw,.9rem);color:#8193b3}
 .tree line{stroke:#5b8bd6;stroke-opacity:.4;stroke-width:1}
-.tree circle{fill:#0a1224;stroke:#4fd1ff;stroke-width:1.6}
+.tree circle{fill:#020617;stroke:#4fd1ff;stroke-width:1.6}
 .hot{fill:none;stroke:#ff5d73;stroke-width:3;stroke-linejoin:round;stroke-dasharray:1;animation:draw 2.4s .4s ease-out backwards;filter:drop-shadow(0 0 4px #ff5d73)}
 @keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
 .cap{fill:#8fe3ff;font-size:14px;font-family:system-ui,sans-serif}
+.team{margin-top:1.1rem}
+.team b{display:block;font-size:clamp(.8rem,1.5vw,1.05rem);color:#8fe3ff;margin-bottom:.35rem;letter-spacing:.04em}
+.team ol{margin:0;padding-left:1.3em;font-size:clamp(.9rem,1.9vw,1.25rem);line-height:1.55;color:#d6e2f7}
+.team ol span{color:#8193b3}
+.s2 .head{position:relative}
+.s2 h2{margin:0;font-size:clamp(1.4rem,3.6vw,2.7rem);line-height:1.06;font-weight:700;letter-spacing:-.025em}
+.s2 h2 span{background:linear-gradient(90deg,#4fd1ff,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.s2 .def{margin:.7rem 0 0;max-width:62ch;font-size:clamp(.8rem,1.5vw,1.05rem);color:#aebfdc;line-height:1.45}
+.cols{position:relative;display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(16px,3vw,44px);align-items:start}
+.col-h{font-size:clamp(.65rem,1.1vw,.8rem);letter-spacing:.12em;color:#8fe3ff;margin:0 0 .6rem}
+.tl{list-style:none;margin:0;padding:0 0 0 14px;border-left:1px solid rgba(79,209,255,.4)}
+.tl li{position:relative;padding:0 0 .7rem 12px;font-size:clamp(.8rem,1.6vw,1.12rem);line-height:1.35;color:#d6e2f7}
+.tl li::before{content:"";position:absolute;left:-19px;top:.4em;width:9px;height:9px;border-radius:50%;background:#020617;border:2px solid #4fd1ff}
+.tl b{color:#8fe3ff;margin-right:.5em}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:clamp(8px,1.4vw,14px)}
+.stat{padding:clamp(10px,1.6vw,16px);border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(79,209,255,.22)}
+.stat .n{font-size:clamp(1.3rem,3vw,2.3rem);font-weight:700;line-height:1;background:linear-gradient(90deg,#4fd1ff,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat p{margin:.4rem 0 0;font-size:clamp(.7rem,1.25vw,.92rem);line-height:1.35;color:#c4d3ee}
+.src{position:relative;font-size:clamp(.6rem,1.05vw,.78rem);color:#8193b3;line-height:1.4}
+@media (max-width:680px){.cols{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.hot{animation:none}}
 @media (max-width:680px){.slide{aspect-ratio:auto;min-height:600px}.txt{max-width:100%}svg.art{width:125%;right:-30%;top:64%;opacity:.4}}
 </style>
@@ -40,7 +60,7 @@ h1 span{background:linear-gradient(90deg,#4fd1ff,#a78bfa);-webkit-background-cli
   <div class="grid"></div>
   <svg class="art" viewBox="0 0 560 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A recursion tree doubling to 64 leaves, one path leading to a shield">
     <defs>
-      <linearGradient id="sh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4fd1ff"/><stop offset="1" stop-color="#a78bfa"/></linearGradient>
+      <linearGradient id="sh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4fd1ff"/><stop offset="1" stop-color="#3b82f6"/></linearGradient>
       <radialGradient id="glow"><stop offset="0" stop-color="#4fd1ff" stop-opacity=".4"/><stop offset="1" stop-color="#4fd1ff" stop-opacity="0"/></radialGradient>
     </defs>
     <circle cx="300" cy="230" r="230" fill="url(#glow)"/>
@@ -48,7 +68,7 @@ h1 span{background:linear-gradient(90deg,#4fd1ff,#a78bfa);-webkit-background-cli
     <path class="hot" id="h" pathLength="1"/>
     <g id="s" opacity="0">
       <circle r="38" fill="url(#glow)"/>
-      <path d="M0-28L22-18V6C22 20 11 30 0 35C-11 30-22 20-22 6V-18Z" fill="#0a1224" stroke="url(#sh)" stroke-width="3"/>
+      <path d="M0-28L22-18V6C22 20 11 30 0 35C-11 30-22 20-22 6V-18Z" fill="#020617" stroke="url(#sh)" stroke-width="3"/>
       <path d="M-9 4L-2 11L11-8" fill="none" stroke="url(#sh)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
     <text class="cap" x="12" y="492">2ⁿ paths to check, one that must hold</text>
@@ -57,12 +77,15 @@ h1 span{background:linear-gradient(90deg,#4fd1ff,#a78bfa);-webkit-background-cli
     <span class="badge">Design and Analysis of Algorithms</span>
     <h1>Trustworthy AI as an <span>algorithmic problem</span></h1>
     <p class="sub">Fairness, explainability, robustness and privacy, and the computational price of each.</p>
+    <div class="team"><b>GROUP 11</b><ol>
+      <li>Jyotipal Mahanta <span>· BTech IT · 240102007</span></li>
+      <li>Th Bibek Singha <span>· BTech IT · 240102017</span></li>
+      <li>Harish Gohain <span>· BTech CSE · 240103016</span></li>
+      <li>Hemanta Konwar <span>· BTech CSE · 240103028</span></li>
+      <li>Arnabmoy Sankriti <span>· BTech CSE · 250403001</span></li>
+    </ol></div>
   </div>
   <div class="foot">
-    <div class="chips">
-      <span class="chip">Verification is NP-complete</span>
-      <span class="chip">Shapley values cost 2ⁿ</span>
-    </div>
     <span class="meta">Gauhati University</span>
   </div>
 </section>
