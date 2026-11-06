@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Introduction to Artificial Intelligence</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap">
+<style>
+:root{--page:#020617;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--page:#000}}
+:root[data-theme="dark"]{--page:#000}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--page);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;padding:24px 12px;font-family:"Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
+.slide{position:relative;overflow:hidden;width:min(100%,1100px);aspect-ratio:16/9;min-height:460px;color:#eaf2ff;
+ background:radial-gradient(800px 520px at 82% 42%,rgba(37,99,235,.55) 0%,transparent 62%),radial-gradient(600px 420px at 5% 105%,rgba(14,60,170,.6) 0%,transparent 65%),radial-gradient(500px 300px at 30% -10%,rgba(56,189,248,.18) 0%,transparent 70%),linear-gradient(160deg,#010309 0%,#040a1c 55%,#000 100%);
+ padding:clamp(22px,5vw,64px);display:flex;flex-direction:column;justify-content:space-between}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(56,140,255,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(56,140,255,.09) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse at 70% 50%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 70% 50%,#000 20%,transparent 75%)}
+svg.art{position:absolute;right:1%;top:50%;transform:translateY(-50%);width:50%;height:auto;max-height:84%}
+.txt{position:relative;max-width:min(46%,520px)}
+.badge{display:inline-block;font-size:clamp(.7rem,1.3vw,.9rem);padding:.35rem .8rem;border:1px solid #4fd1ff;color:#8fe3ff;border-radius:999px;background:rgba(79,209,255,.08);margin-bottom:1.1rem}
+h1{margin:0;font-size:clamp(1.4rem,3.6vw,2.7rem);line-height:1.04;font-weight:700;letter-spacing:-.025em}
+h1 span{background:linear-gradient(90deg,#4fd1ff,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{margin:1rem 0 0;font-size:clamp(.9rem,1.9vw,1.25rem);color:#aebfdc;line-height:1.45}
+.foot{position:relative;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;justify-content:space-between}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{font-size:clamp(.7rem,1.3vw,.9rem);padding:.4rem .75rem;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#d6e2f7}
+.meta{margin-left:auto;font-size:clamp(.7rem,1.3vw,.9rem);color:#8193b3}
+.tree line{stroke:#5b8bd6;stroke-opacity:.4;stroke-width:1}
+.tree circle{fill:#020617;stroke:#4fd1ff;stroke-width:1.6}
+.hot{fill:none;stroke:#ff5d73;stroke-width:3;stroke-linejoin:round;stroke-dasharray:1;animation:draw 2.4s .4s ease-out backwards;filter:drop-shadow(0 0 4px #ff5d73)}
+@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.cap{fill:#8fe3ff;font-size:14px;font-family:system-ui,sans-serif}
+.team{margin-top:1.1rem}
+.team b{display:block;font-size:clamp(.8rem,1.5vw,1.05rem);color:#8fe3ff;margin-bottom:.35rem;letter-spacing:.04em}
+.team ol{margin:0;padding-left:1.3em;font-size:clamp(.9rem,1.9vw,1.25rem);line-height:1.55;color:#d6e2f7}
+.team ol span{color:#8193b3}
+.s2 .head{position:relative}
+.s2 h2{margin:0;font-size:clamp(1.4rem,3.6vw,2.7rem);line-height:1.06;font-weight:700;letter-spacing:-.025em}
+.s2 h2 span{background:linear-gradient(90deg,#4fd1ff,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.s2 .def{margin:.7rem 0 0;max-width:62ch;font-size:clamp(.8rem,1.5vw,1.05rem);color:#aebfdc;line-height:1.45}
+.cols{position:relative;display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(16px,3vw,44px);align-items:start}
+.col-h{font-size:clamp(.65rem,1.1vw,.8rem);letter-spacing:.12em;color:#8fe3ff;margin:0 0 .6rem}
+.tl{list-style:none;margin:0;padding:0 0 0 14px;border-left:1px solid rgba(79,209,255,.4)}
+.tl li{position:relative;padding:0 0 .7rem 12px;font-size:clamp(.8rem,1.6vw,1.12rem);line-height:1.35;color:#d6e2f7}
+.tl li::before{content:"";position:absolute;left:-19px;top:.4em;width:9px;height:9px;border-radius:50%;background:#020617;border:2px solid #4fd1ff}
+.tl b{color:#8fe3ff;margin-right:.5em}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:clamp(8px,1.4vw,14px)}
+.stat{padding:clamp(10px,1.6vw,16px);border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(79,209,255,.22)}
+.stat .n{font-size:clamp(1.3rem,3vw,2.3rem);font-weight:700;line-height:1;background:linear-gradient(90deg,#4fd1ff,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat p{margin:.4rem 0 0;font-size:clamp(.7rem,1.25vw,.92rem);line-height:1.35;color:#c4d3ee}
+.src{position:relative;font-size:clamp(.6rem,1.05vw,.78rem);color:#8193b3;line-height:1.4}
+@media (max-width:680px){.cols{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.hot{animation:none}}
+@media (max-width:680px){.slide{aspect-ratio:auto;min-height:600px}.txt{max-width:100%}svg.art{width:125%;right:-30%;top:64%;opacity:.4}}
+</style>
+</head>
+<body>
+<section class="slide s2">
+  <div class="grid"></div>
+  <div class="head">
+    <span class="badge">Introduction</span>
+    <h2>Introduction to <span>Artificial Intelligence</span></h2>
+    <p class="def">Machines that learn, reason and understand language.</p>
+  </div>
+  <div class="cols">
+    <div>
+      <p class="col-h">BACKGROUND</p>
+      <ol class="tl">
+        <li><b>1950</b>Turing asks: can machines think?</li>
+        <li><b>1956</b>The term “AI” is coined</li>
+        <li><b>1997</b>Deep Blue beats the chess champion</li>
+        <li><b>2012</b>Deep learning takes off</li>
+        <li><b>2022</b>ChatGPT goes mainstream</li>
+      </ol>
+    </div>
+    <div>
+      <p class="col-h">WHY IT MATTERS (2025 DATA)</p>
+      <div class="stats">
+        <div class="stat"><div class="n">53%</div><p>GenAI adoption in 3 years, faster than the internet</p></div>
+        <div class="stat"><div class="n">$286B</div><p>US private AI investment in 2025</p></div>
+        <div class="stat"><div class="n">66%</div><p>AI agent score on computer tasks (humans: 72%)</p></div>
+        <div class="stat"><div class="n">362</div><p>AI incidents reported, a record</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="src">Source: Stanford HAI, AI Index Report 2026.</div>
+</section>
+</body>
+</html>
