@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Foundations of Trustworthy AI</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap">
+<style>
+:root{--page:#020617;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--page:#000}}
+:root[data-theme="dark"]{--page:#000}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--page);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 12px;font-family:"Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
+.slide{position:relative;width:min(100%,1100px);aspect-ratio:16/9;min-height:460px;color:#eaf2ff;
+ background:radial-gradient(800px 520px at 82% 42%,rgba(37,99,235,.55) 0%,transparent 62%),radial-gradient(600px 420px at 5% 105%,rgba(14,60,170,.6) 0%,transparent 65%),radial-gradient(500px 300px at 30% -10%,rgba(56,189,248,.18) 0%,transparent 70%),linear-gradient(160deg,#010309 0%,#040a1c 55%,#000 100%);
+ padding:clamp(20px,3.6vw,44px) clamp(20px,4.5vw,56px);display:flex;flex-direction:column;justify-content:space-between;gap:clamp(12px,1.8vw,20px)}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(56,140,255,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(56,140,255,.09) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse at 70% 50%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 70% 50%,#000 20%,transparent 75%);pointer-events:none}
+.head,.pillars,.together,.src{position:relative}
+.badge{display:inline-block;font-size:clamp(.7rem,1.2vw,.85rem);padding:.3rem .75rem;border:1px solid #4fd1ff;color:#8fe3ff;border-radius:999px;background:rgba(79,209,255,.08);margin-bottom:.7rem}
+h2{margin:0;font-size:clamp(1.4rem,3.3vw,2.4rem);line-height:1.06;font-weight:700;letter-spacing:-.025em}
+h2 span{background:linear-gradient(90deg,#4fd1ff,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.def{margin:.55rem 0 0;font-size:clamp(.78rem,1.4vw,1rem);color:#aebfdc;line-height:1.4}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1.6vw,20px)}
+.card{display:flex;flex-direction:column;border-radius:14px;background:rgba(8,20,48,.78);border:1.5px solid rgba(79,209,255,.55);box-shadow:0 0 0 1px rgba(79,209,255,.08),0 8px 24px rgba(0,0,0,.35);overflow:hidden}
+.top{display:flex;align-items:center;justify-content:space-between;padding:clamp(8px,1.2vw,12px) clamp(12px,1.6vw,18px);background:linear-gradient(90deg,rgba(79,209,255,.28),rgba(59,130,246,.18));border-bottom:1.5px solid rgba(79,209,255,.45)}
+.top .n{font-size:clamp(1.05rem,2.1vw,1.55rem);font-weight:700;line-height:1;color:#fff}
+.top .num{font-size:clamp(.62rem,1vw,.78rem);letter-spacing:.14em;color:#8fe3ff}
+.body{display:flex;flex-direction:column;gap:.5rem;padding:clamp(10px,1.5vw,16px) clamp(12px,1.6vw,18px)}
+.m{margin:0;font-size:clamp(.78rem,1.3vw,.98rem);line-height:1.35;color:#8fe3ff;font-weight:700}
+ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:.35rem}
+li{position:relative;padding-left:1.1em;font-size:clamp(.72rem,1.2vw,.9rem);line-height:1.35;color:#d6e2f7}
+li::before{content:"";position:absolute;left:0;top:.5em;width:6px;height:6px;border-radius:50%;background:#4fd1ff}
+.tags{padding:clamp(7px,1vw,10px) clamp(12px,1.6vw,18px);border-top:1px solid rgba(79,209,255,.3);background:rgba(255,255,255,.04);font-size:clamp(.64rem,1.05vw,.8rem);color:#aebfdc;line-height:1.35}
+.together{padding:clamp(8px,1.2vw,12px) clamp(14px,2vw,22px);border-radius:12px;background:rgba(79,209,255,.1);border:1.5px solid rgba(79,209,255,.5);font-size:clamp(.75rem,1.3vw,.95rem);line-height:1.4;color:#d6e2f7;text-align:center}
+.together b{color:#8fe3ff}
+.src{font-size:clamp(.58rem,1vw,.74rem);color:#8193b3;line-height:1.3}
+@media (max-width:680px){.pillars{grid-template-columns:1fr}.slide{aspect-ratio:auto;min-height:0}}
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="grid"></div>
+  <div class="head">
+    <span class="badge">Foundations</span>
+    <h2>Foundations of <span>Trustworthy AI</span></h2>
+    <p class="def">Three components that should hold throughout an AI system’s entire life cycle.</p>
+  </div>
+  <div class="pillars">
+    <div class="card">
+      <div class="top"><span class="n">Lawful</span><span class="num">01</span></div>
+      <div class="body">
+        <p class="m">Respects all applicable laws and regulations</p>
+        <ul>
+          <li>Applies across the whole life cycle</li>
+          <li>Ethics adds to legal compliance, not replaces it</li>
+          <li>Guidelines focus on the other two pillars</li>
+          <li>Guidelines are voluntary, not binding</li>
+        </ul>
+      </div>
+      <div class="tags">Legal detail sits in law, not the guidelines</div>
+    </div>
+    <div class="card">
+      <div class="top"><span class="n">Ethical</span><span class="num">02</span></div>
+      <div class="body">
+        <p class="m">Respects ethical principles and values</p>
+        <ul>
+          <li>Respect for human autonomy</li>
+          <li>Prevention of harm</li>
+          <li>Fairness</li>
+          <li>Explicability</li>
+        </ul>
+      </div>
+      <div class="tags">Four ethical principles of the HLEG</div>
+    </div>
+    <div class="card">
+      <div class="top"><span class="n">Robust</span><span class="num">03</span></div>
+      <div class="body">
+        <p class="m">Sound technically and in its social setting</p>
+        <ul>
+          <li>Technical robustness and safety</li>
+          <li>Social environment is considered</li>
+          <li>Good intentions can still cause harm</li>
+          <li>Testing and validating</li>
+        </ul>
+      </div>
+      <div class="tags">Technical and social perspective</div>
+    </div>
+  </div>
+  <div class="together"><b>Why all three?</b> Each is necessary but not sufficient. Ideally all three work in harmony.</div>
+  <div class="src">Source: EU High-Level Expert Group on AI, Ethics Guidelines for Trustworthy AI (8 April 2019). digital-strategy.ec.europa.eu</div>
+</section>
+</body>
+</html>
